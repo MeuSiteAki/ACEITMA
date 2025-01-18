@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMULÁRIO DE VISITA</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="soma.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<!--ESTE CÓDIGO ESTÁ REGISTRADO EM CARTÓRIO-->
+<body> <form id="meuFormulario">
+        <div class="C6">
+        <table border="1" style="background-color: rgb(233, 208, 66); border-color: rgb(190, 190, 190);">
+            <tr class="C4">
+                <th><img src="ITI.png" style="height: 100px;width: 100px;"></th>
+                <th colspan="8" style="background-color: yellow;"><u>ACE - ITINGA DO MARANHÃO / SUS</u></th>
+            </tr>          
+            <tr>
+                <th>NOME DO AGENTE: <input size="33"> </th>
+                <th>MUNICÍPIO: <input size="22" list="Z1"></th>
+                <th>CÓD./NOME DA LOC.:<input list="loc"></th>
+                <th>CATEG.LOC.:<input size="4"></th>
+                <th>ZONA:<input size="7" list="Z"></th>
+                <th colspan="2" style="font-size: small;">(1 sede/2 outro):<input size="1"></th>
+                <th>DATA:<input size="10" type="text" id="data" name="data" placeholder="dd/mm/aaaa"  oninput="mascaraData(this)"></th>
+                <th>CICLO/ANO:<input size="3" list="CI"></th>
+               <tr> 
+                <datalist id="Z1">
+                    <option value="Itinga do Maranhão"></option>
+                </datalist>
+                <datalist id="loc">    
+                    <option value="100 CENTRO"></option>
+                    <option value="215 VILA EMANUELA"></option>
+                    <option value="218 VILA SAMUEL"></option>
+                    <option value="214 JARDIM PLANALTO"></option>
+                    <option value="225 PARQUE PRIMAVERA"></option>
+                    <option value="219 SÃO SEBASTIÃO"></option>
+                    <option value="216 VILA QUININHA"></option>
+                    <option value="217 VILA GRANDÃO"></option>
+                    <option value="220 VALE DO ITINGA"></option>
+                    <option value="221 VILA JAMILY"></option>
+                    <option value="222 PARAISO"></option>
+                    <option value="223 VILA SÃO JOÃO"></option>
+                    <option value="224 CENTRO 2"></option>
+                    <option value="140 PAULISTÃO"></option>
+                    <option value="33 CAJUAPARA"></option>
+                </datalist>
+                <datalist id="Z">
+                    <option value="URBANA"></option>
+                    <option value="RURAL"></option>
+                </datalist>
+                <datalist id="CI">
+                    <option value="01/24"></option>
+                    <option value="02/24"></option>
+                    <option value="03/24"></option>
+                    <option value="04/24"></option>
+                    <option value="05/24"></option>
+                    <option value="06/24"></option>
+                </datalist>
+                
+             </tr>
+             <tr>
+                <th colspan="50">Atividade:(<small>1-(LI)-Levantamento de índice|2-(LI+T)-Levantamento de índice+Tratamento|3-(PE)-Ponto estratégico|4-(T)-Tratamento|5-(DF)-Deliminação de foco|6-(PVE)-Pesquisa vetorial especial</small>) <select style="font-weight: 750; font-size: 17px; color: rgb(4, 4, 175);">
+                    <option></option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                </select> </th>
+              </tr>
+             <tr style="background-color: white;"><th colspan="10"><a href="index.page2.html" style="color: rgb(6, 6, 151); font-size: 130%;">MAPAS DAS MICRO ÁREAS/QUANT. DE IMÓVEIS DAS MICRO ÁREAS</a></th></tr>
+             <tr style="background-color: white;"><th colspan="1"><a href="index.lira.html">FORMULÁRIO LIRAa</a>
+             <th colspan="2"><a href="index.calcula.html">CALCULADORA/LITROS</a>
+             <th colspan="3"><a href="index.page4.html">IMÓV.FECHADOS</a>
+             <th colspan="4"><button style="font-family: Verdana; font-weight: 1000; background-color: rgb(0, 48, 204); color: rgb(255, 255, 255); border-radius: 7px; cursor: pointer; font-size: 14px; padding: 3px;" type="button" onclick="salvarComoPNG()">SALVAR SERVIÇO</button>
+             <!--<th colspan="2"><button style="font-family: Verdana; font-weight: 900;"><a href="index.html"> SAIR</button></th></a>-->
+             <script>
+                function salvarComoPNG() {
+                    const formulario = document.getElementById('meuFormulario');
+                    html2canvas(formulario).then(function(canvas) {
+                        const imgData = canvas.toDataURL('image/png');
+                        const link = document.createElement('a');
+                        link.download = 'formulario.png';
+                        link.href = imgData;
+                        link.click();
+                    });
+                }
+                function mascaraData(input) {
+            let value = input.value.replace(/\D/g, '');
+            if (value.length > 2) {
+                value = value.replace(/(\d{2})(\d)/, '$1/$2');
+            }
+            if (value.length > 5) {
+                value = value.replace(/(\d{2})\/(\d{2})(\d)/, '$1/$2/$3');
+            }
+            input.value = value;
+        }
+        function formatTime(input) {
+            let value = input.value.replace(/[^0-9]/g, '').substring(0, 4);
+            if (value.length >= 3) {
+                value = value.replace(/(\d{2})(\d)/, '$1:$2');
+            }
+            input.value = value;
+        }
+            </script>
+        </table>
+     </div>
+     <div>
+         <table border="1">
+            
+            <tr class="C7">
+                <th colspan="16">PESQUISA ENTOMOLÓGICA/TRATAMENTO:</th>
+            </tr>
+            <tr class="C3">
+                <th>NºORD 1</th>
+                <th>NºQT <input type="number" min="0" max="9"></th>
+                <th>LD <input type="number" min="0" max="9"></th>
+                <th>Nome do Logradouro<input size="25"></th>
+                <th>Nº.<input type="number" min="0" max="9"></th>
+                <th>Seq.<input type="number" min="0" max="9"></th>
+                <th>Hora<input size="1" type="text" id="horaInicio" name="horaInicio"  maxlength="5"  oninput="formatTime(this)"></th>
+                <th>T.I<input size="1"></th>
+                <th>Visita<input size="1" class="input-letra2"></th>
+                <th>Pend.<input size="1" class="input-letra1"></th>
+                <th>Elimi.<input id="A11" type="number" class="numero1" max="9" min="0"></th>
+                <th>Imóv.Insp. <input size="1" class="input-letra"></th>
+                <th>Imóv.Foco<input type="checkbox" class="checkbox" value="1"></th>
+                <th>Imóv.Trat.<input type="checkbox" class="checkbox1" value="1"></th>
+                <th>Gramas<input id="B11" list="LT" size="2" class="numero2"></th>
+                <th>Dep.Trat.<input id="C11" type="number" max="9" min="0" class="numero3"></th>
+                <datalist id="LT">
+                    <option value="0.5"></option>
+                    <option value="1.0"></option>
+                    <option value="1.5"></option>
+                    <option value="2.0"></option>
+                    <option value="2.5"></option>
+                    <option value="3.0"></option>
+                    <option value="3.5"></option>
+                    <option value="4.0"></option>
+                    <option value="4.5"></option>
+                    <option value="5.0"></option>
+                    <option value="5.5"></option>
+                    <option value="6.0"></option>
+                    <option value="6.5"></option>
+                    <option value="7.0"></option>
+                    <option value="7.5"></option>
+                    <option value="8.0"></option>
+                    <option value="8.5"></option>
+                    <option value="9.0"></option>
+                    <option value="9.5"></option>
+                    <option value="10.0"></option>
+                </datalist>
+            </tr>
+             <tr class="C3">
+                <th>2</th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="25"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="1" type="text" id="horaInicio" name="horaInicio"  maxlength="5"  oninput="formatTime(this)"></th>
+                <th><input size="1"></th>
+                <th><input size="1" class="input-letra2"></th>
+                <th><input size="1" class="input-letra1"></th>
+                <th><input id="A12" type="number" class="numero1" max="9" min="0"></th>
+                <th><input size="1" class="input-letra"></th>
+                <th><input type="checkbox" class="checkbox" value="1"></th>
+                <th><input type="checkbox" class="checkbox1" value="1"></th>
+                <th><input id="B12" list="LT" size="2" class="numero2"></th>
+                <th><input id="C12" type="number" max="9" min="0" class="numero3"></th>
+                <datalist id="LT">
+                    <option value="0.5"></option>
+                    <option value="1.0"></option>
+                    <option value="1.5"></option>
+                    <option value="2.0"></option>
+                    <option value="2.5"></option>
+                    <option value="3.0"></option>
+                    <option value="3.5"></option>
+                    <option value="4.0"></option>
+                    <option value="4.5"></option>
+                    <option value="5.0"></option>
+                    <option value="5.5"></option>
+                    <option value="6.0"></option>
+                    <option value="6.5"></option>
+                    <option value="7.0"></option>
+                    <option value="7.5"></option>
+                    <option value="8.0"></option>
+                    <option value="8.5"></option>
+                    <option value="9.0"></option>
+                    <option value="9.5"></option>
+                    <option value="10.0"></option>
+                </datalist>
+             </tr>
+             <tr class="C3">
+                <th>3</th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="25"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="1" type="text" id="horaInicio" name="horaInicio"  maxlength="5"  oninput="formatTime(this)"></th>
+                <th><input size="1"></th>
+                <th><input size="1" class="input-letra2"></th>
+                <th><input size="1" class="input-letra1"></th>
+                <th><input id="A13" type="number" class="numero1" max="9" min="0"></th>
+                <th><input size="1" class="input-letra"></th>
+                <th><input type="checkbox" class="checkbox" value="1"></th>
+                <th><input type="checkbox" class="checkbox1" value="1"></th>
+                <th><input id="B13" list="LT" size="2" class="numero2"></th>
+                <th><input id="C13" type="number" max="9" min="0" class="numero3"></th>
+                <datalist id="LT">
+                    <option value="0.5"></option>
+                    <option value="1.0"></option>
+                    <option value="1.5"></option>
+                    <option value="2.0"></option>
+                    <option value="2.5"></option>
+                    <option value="3.0"></option>
+                    <option value="3.5"></option>
+                    <option value="4.0"></option>
+                    <option value="4.5"></option>
+                    <option value="5.0"></option>
+                    <option value="5.5"></option>
+                    <option value="6.0"></option>
+                    <option value="6.5"></option>
+                    <option value="7.0"></option>
+                    <option value="7.5"></option>
+                    <option value="8.0"></option>
+                    <option value="8.5"></option>
+                    <option value="9.0"></option>
+                    <option value="9.5"></option>
+                    <option value="10.0"></option>
+                </datalist>
+             </tr>
+             <tr class="C3">
+                <th>4</th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="25"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="1" type="text" id="horaInicio" name="horaInicio"  maxlength="5"  oninput="formatTime(this)"></th>
+                <th><input size="1"></th>
+                <th><input size="1" class="input-letra2"></th>
+                <th><input size="1" class="input-letra1"></th>
+                <th><input id="A14" type="number" class="numero1" max="9" min="0"></th>
+                <th><input size="1" class="input-letra"></th>
+                <th><input type="checkbox" class="checkbox" value="1"></th>
+                <th><input type="checkbox" class="checkbox1" value="1"></th>
+                <th><input id="B14" list="LT" size="2" class="numero2"></th>
+                <th><input id="C14" type="number" max="9" min="0" class="numero3"></th>
+                <datalist id="LT">
+                    <option value="0.5"></option>
+                    <option value="1.0"></option>
+                    <option value="1.5"></option>
+                    <option value="2.0"></option>
+                    <option value="2.5"></option>
+                    <option value="3.0"></option>
+                    <option value="3.5"></option>
+                    <option value="4.0"></option>
+                    <option value="4.5"></option>
+                    <option value="5.0"></option>
+                    <option value="5.5"></option>
+                    <option value="6.0"></option>
+                    <option value="6.5"></option>
+                    <option value="7.0"></option>
+                    <option value="7.5"></option>
+                    <option value="8.0"></option>
+                    <option value="8.5"></option>
+                    <option value="9.0"></option>
+                    <option value="9.5"></option>
+                    <option value="10.0"></option>
+                </datalist>
+             </tr>
+             <tr class="C3">
+                <th>5</th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="25"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="1" type="text" id="horaInicio" name="horaInicio"  maxlength="5"  oninput="formatTime(this)"></th>
+                <th><input size="1"></th>
+                <th><input size="1" class="input-letra2"></th>
+                <th><input size="1" class="input-letra1"></th>
+                <th><input id="A15" type="number" class="numero1" max="9" min="0"></th>
+                <th><input size="1" class="input-letra"></th>
+                <th><input type="checkbox" class="checkbox" value="1"></th>
+                <th><input type="checkbox" class="checkbox1" value="1"></th>
+                <th><input id="B15" list="LT" size="2" class="numero2"></th>
+                <th><input id="C15" type="number" max="9" min="0" class="numero3"></th>
+                <datalist id="LT">
+                    <option value="0.5"></option>
+                    <option value="1.0"></option>
+                    <option value="1.5"></option>
+                    <option value="2.0"></option>
+                    <option value="2.5"></option>
+                    <option value="3.0"></option>
+                    <option value="3.5"></option>
+                    <option value="4.0"></option>
+                    <option value="4.5"></option>
+                    <option value="5.0"></option>
+                    <option value="5.5"></option>
+                    <option value="6.0"></option>
+                    <option value="6.5"></option>
+                    <option value="7.0"></option>
+                    <option value="7.5"></option>
+                    <option value="8.0"></option>
+                    <option value="8.5"></option>
+                    <option value="9.0"></option>
+                    <option value="9.5"></option>
+                    <option value="10.0"></option>
+                </datalist>
+             </tr>
+             <tr class="C3">
+                <th>6</th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="25"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="1" type="text" id="horaInicio" name="horaInicio"  maxlength="5"  oninput="formatTime(this)"></th>
+                <th><input size="1"></th>
+                <th><input size="1" class="input-letra2"></th>
+                <th><input size="1" class="input-letra1"></th>
+                <th><input id="A16" type="number" class="numero1" max="9" min="0"></th>
+                <th><input size="1" class="input-letra"></th>
+                <th><input type="checkbox" class="checkbox" value="1"></th>
+                <th><input type="checkbox" class="checkbox1" value="1"></th>
+                <th><input id="B16" list="LT" size="2" class="numero2"></th>
+                <th><input id="C16" type="number" max="9" min="0" class="numero3"></th>
+                <datalist id="LT">
+                    <option value="0.5"></option>
+                    <option value="1.0"></option>
+                    <option value="1.5"></option>
+                    <option value="2.0"></option>
+                    <option value="2.5"></option>
+                    <option value="3.0"></option>
+                    <option value="3.5"></option>
+                    <option value="4.0"></option>
+                    <option value="4.5"></option>
+                    <option value="5.0"></option>
+                    <option value="5.5"></option>
+                    <option value="6.0"></option>
+                    <option value="6.5"></option>
+                    <option value="7.0"></option>
+                    <option value="7.5"></option>
+                    <option value="8.0"></option>
+                    <option value="8.5"></option>
+                    <option value="9.0"></option>
+                    <option value="9.5"></option>
+                    <option value="10.0"></option>
+                </datalist>
+             </tr>
+             <tr class="C3">
+                <th>7</th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="25"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="1" type="text" id="horaInicio" name="horaInicio"  maxlength="5"  oninput="formatTime(this)"></th>
+                <th><input size="1"></th>
+                <th><input size="1" class="input-letra2"></th>
+                <th><input size="1" class="input-letra1"></th>
+                <th><input id="A17" type="number" class="numero1" max="9" min="0"></th>
+                <th><input size="1" class="input-letra"></th>
+                <th><input type="checkbox" class="checkbox" value="1"></th>
+                <th><input type="checkbox" class="checkbox1" value="1"></th>
+                <th><input id="B17" list="LT" size="2" class="numero2"></th>
+                <th><input id="C17" type="number" max="9" min="0" class="numero3"></th>
+                <datalist id="LT">
+                    <option value="0.5"></option>
+                    <option value="1.0"></option>
+                    <option value="1.5"></option>
+                    <option value="2.0"></option>
+                    <option value="2.5"></option>
+                    <option value="3.0"></option>
+                    <option value="3.5"></option>
+                    <option value="4.0"></option>
+                    <option value="4.5"></option>
+                    <option value="5.0"></option>
+                    <option value="5.5"></option>
+                    <option value="6.0"></option>
+                    <option value="6.5"></option>
+                    <option value="7.0"></option>
+                    <option value="7.5"></option>
+                    <option value="8.0"></option>
+                    <option value="8.5"></option>
+                    <option value="9.0"></option>
+                    <option value="9.5"></option>
+                    <option value="10.0"></option>
+                </datalist>
+             </tr>
+             <tr class="C3">
+                <th>8</th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="25"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="1" type="text" id="horaInicio" name="horaInicio"  maxlength="5"  oninput="formatTime(this)"></th>
+                <th><input size="1"></th>
+                <th><input size="1" class="input-letra2"></th>
+                <th><input size="1" class="input-letra1"></th>
+                <th><input id="A18" type="number" class="numero1" max="9" min="0"></th>
+                <th><input size="1" class="input-letra"></th>
+                <th><input type="checkbox" class="checkbox" value="1"></th>
+                <th><input type="checkbox" class="checkbox1" value="1"></th>
+                <th><input id="B18" list="LT" size="2" class="numero2"></th>
+                <th><input id="C18" type="number" max="9" min="0" class="numero3"></th>
+                <datalist id="LT">
+                    <option value="0.5"></option>
+                    <option value="1.0"></option>
+                    <option value="1.5"></option>
+                    <option value="2.0"></option>
+                    <option value="2.5"></option>
+                    <option value="3.0"></option>
+                    <option value="3.5"></option>
+                    <option value="4.0"></option>
+                    <option value="4.5"></option>
+                    <option value="5.0"></option>
+                    <option value="5.5"></option>
+                    <option value="6.0"></option>
+                    <option value="6.5"></option>
+                    <option value="7.0"></option>
+                    <option value="7.5"></option>
+                    <option value="8.0"></option>
+                    <option value="8.5"></option>
+                    <option value="9.0"></option>
+                    <option value="9.5"></option>
+                    <option value="10.0"></option>
+                </datalist>
+             </tr>
+             <tr class="C3">
+                <th>9</th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="25"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="1" type="text" id="horaInicio" name="horaInicio"  maxlength="5"  oninput="formatTime(this)"></th>
+                <th><input size="1"></th>
+                <th><input size="1" class="input-letra2"></th>
+                <th><input size="1" class="input-letra1"></th>
+                <th><input id="A19" type="number" class="numero1" max="9" min="0"></th>
+                <th><input size="1" class="input-letra"></th>
+                <th><input type="checkbox" class="checkbox" value="1"></th>
+                <th><input type="checkbox" class="checkbox1" value="1"></th>
+                <th><input id="B19" list="LT" size="2" class="numero2"></th>
+                <th><input id="C19" type="number" max="9" min="0" class="numero3"></th>
+                <datalist id="LT">
+                    <option value="0.5"></option>
+                    <option value="1.0"></option>
+                    <option value="1.5"></option>
+                    <option value="2.0"></option>
+                    <option value="2.5"></option>
+                    <option value="3.0"></option>
+                    <option value="3.5"></option>
+                    <option value="4.0"></option>
+                    <option value="4.5"></option>
+                    <option value="5.0"></option>
+                    <option value="5.5"></option>
+                    <option value="6.0"></option>
+                    <option value="6.5"></option>
+                    <option value="7.0"></option>
+                    <option value="7.5"></option>
+                    <option value="8.0"></option>
+                    <option value="8.5"></option>
+                    <option value="9.0"></option>
+                    <option value="9.5"></option>
+                    <option value="10.0"></option>
+                </datalist>
+             </tr>
+             <tr class="C3">
+                <th>10</th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="25"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="1" type="text" id="horaInicio" name="horaInicio"  maxlength="5"  oninput="formatTime(this)"></th>
+                <th><input size="1"></th>
+                <th><input size="1" class="input-letra2"></th>
+                <th><input size="1" class="input-letra1"></th>
+                <th><input id="A20" type="number" class="numero1" max="9" min="0"></th>
+                <th><input size="1" class="input-letra"></th>
+                <th><input type="checkbox" class="checkbox" value="1"></th>
+                <th><input type="checkbox" class="checkbox1" value="1"></th>
+                <th><input id="B20" list="LT" size="2" class="numero2"></th>
+                <th><input id="C20" type="number" max="9" min="0" class="numero3"></th>
+                <datalist id="LT">
+                    <option value="0.5"></option>
+                    <option value="1.0"></option>
+                    <option value="1.5"></option>
+                    <option value="2.0"></option>
+                    <option value="2.5"></option>
+                    <option value="3.0"></option>
+                    <option value="3.5"></option>
+                    <option value="4.0"></option>
+                    <option value="4.5"></option>
+                    <option value="5.0"></option>
+                    <option value="5.5"></option>
+                    <option value="6.0"></option>
+                    <option value="6.5"></option>
+                    <option value="7.0"></option>
+                    <option value="7.5"></option>
+                    <option value="8.0"></option>
+                    <option value="8.5"></option>
+                    <option value="9.0"></option>
+                    <option value="9.5"></option>
+                    <option value="10.0"></option>
+                </datalist>
+             </tr>
+             <tr class="C3">
+                <th>11</th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="25"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="1" type="text" id="horaInicio" name="horaInicio"  maxlength="5"  oninput="formatTime(this)"></th>
+                <th><input size="1"></th>
+                <th><input size="1" class="input-letra2"></th>
+                <th><input size="1" class="input-letra1"></th>
+                <th><input id="A21" type="number" class="numero1" max="9" min="0"></th>
+                <th><input size="1" class="input-letra"></th>
+                <th><input type="checkbox" class="checkbox" value="1"></th>
+                <th><input type="checkbox" class="checkbox1" value="1"></th>
+                <th><input id="B21" list="LT" size="2" class="numero2"></th>
+                <th><input id="C21" type="number" max="9" min="0" class="numero3"></th>
+                <datalist id="LT">
+                    <option value="0.5"></option>
+                    <option value="1.0"></option>
+                    <option value="1.5"></option>
+                    <option value="2.0"></option>
+                    <option value="2.5"></option>
+                    <option value="3.0"></option>
+                    <option value="3.5"></option>
+                    <option value="4.0"></option>
+                    <option value="4.5"></option>
+                    <option value="5.0"></option>
+                    <option value="5.5"></option>
+                    <option value="6.0"></option>
+                    <option value="6.5"></option>
+                    <option value="7.0"></option>
+                    <option value="7.5"></option>
+                    <option value="8.0"></option>
+                    <option value="8.5"></option>
+                    <option value="9.0"></option>
+                    <option value="9.5"></option>
+                    <option value="10.0"></option>
+                </datalist>
+             </tr>
+             <tr class="C3">
+                <th>12</th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="25"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="1" type="text" id="horaInicio" name="horaInicio"  maxlength="5"  oninput="formatTime(this)"></th>
+                <th><input size="1"></th>
+                <th><input size="1" class="input-letra2"></th>
+                <th><input size="1" class="input-letra1"></th>
+                <th><input id="A22" type="number" class="numero1" max="9" min="0"></th>
+                <th><input size="1" class="input-letra"></th>
+                <th><input type="checkbox" class="checkbox" value="1"></th>
+                <th><input type="checkbox" class="checkbox1" value="1"></th>
+                <th><input id="B22" list="LT" size="2" class="numero2"></th>
+                <th><input id="C22" type="number" max="9" min="0" class="numero3"></th>
+                <datalist id="LT">
+                    <option value="0.5"></option>
+                    <option value="1.0"></option>
+                    <option value="1.5"></option>
+                    <option value="2.0"></option>
+                    <option value="2.5"></option>
+                    <option value="3.0"></option>
+                    <option value="3.5"></option>
+                    <option value="4.0"></option>
+                    <option value="4.5"></option>
+                    <option value="5.0"></option>
+                    <option value="5.5"></option>
+                    <option value="6.0"></option>
+                    <option value="6.5"></option>
+                    <option value="7.0"></option>
+                    <option value="7.5"></option>
+                    <option value="8.0"></option>
+                    <option value="8.5"></option>
+                    <option value="9.0"></option>
+                    <option value="9.5"></option>
+                    <option value="10.0"></option>
+                </datalist>
+             </tr>
+             <tr class="C3">
+                <th>13</th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="25"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="1" type="text" id="horaInicio" name="horaInicio"  maxlength="5"  oninput="formatTime(this)"></th>
+                <th><input size="1"></th>
+                <th><input size="1" class="input-letra2"></th>
+                <th><input size="1" class="input-letra1"></th>
+                <th><input id="A23" type="number" class="numero1" max="9" min="0"></th>
+                <th><input size="1" class="input-letra"></th>
+                <th><input type="checkbox" class="checkbox" value="1"></th>
+                <th><input type="checkbox" class="checkbox1" value="1"></th>
+                <th><input id="B23" list="LT" size="2" class="numero2"></th>
+                <th><input id="C23" type="number" max="9" min="0" class="numero3"></th>
+                <datalist id="LT">
+                    <option value="0.5"></option>
+                    <option value="1.0"></option>
+                    <option value="1.5"></option>
+                    <option value="2.0"></option>
+                    <option value="2.5"></option>
+                    <option value="3.0"></option>
+                    <option value="3.5"></option>
+                    <option value="4.0"></option>
+                    <option value="4.5"></option>
+                    <option value="5.0"></option>
+                    <option value="5.5"></option>
+                    <option value="6.0"></option>
+                    <option value="6.5"></option>
+                    <option value="7.0"></option>
+                    <option value="7.5"></option>
+                    <option value="8.0"></option>
+                    <option value="8.5"></option>
+                    <option value="9.0"></option>
+                    <option value="9.5"></option>
+                    <option value="10.0"></option>
+                </datalist>
+             </tr>
+             <tr class="C3">
+                <th>14</th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="25"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="1" type="text" id="horaInicio" name="horaInicio"  maxlength="5"  oninput="formatTime(this)"></th>
+                <th><input size="1"></th>
+                <th><input size="1" class="input-letra2"></th>
+                <th><input size="1" class="input-letra1"></th>
+                <th><input id="A24" type="number" class="numero1" max="9" min="0"></th>
+                <th><input size="1" class="input-letra"></th>
+                <th><input type="checkbox" class="checkbox" value="1"></th>
+                <th><input type="checkbox" class="checkbox1" value="1"></th>
+                <th><input id="B24" list="LT" size="2" class="numero2"></th>
+                <th><input id="C24" type="number" max="9" min="0" class="numero3"></th>
+                <datalist id="LT">
+                    <option value="0.5"></option>
+                    <option value="1.0"></option>
+                    <option value="1.5"></option>
+                    <option value="2.0"></option>
+                    <option value="2.5"></option>
+                    <option value="3.0"></option>
+                    <option value="3.5"></option>
+                    <option value="4.0"></option>
+                    <option value="4.5"></option>
+                    <option value="5.0"></option>
+                    <option value="5.5"></option>
+                    <option value="6.0"></option>
+                    <option value="6.5"></option>
+                    <option value="7.0"></option>
+                    <option value="7.5"></option>
+                    <option value="8.0"></option>
+                    <option value="8.5"></option>
+                    <option value="9.0"></option>
+                    <option value="9.5"></option>
+                    <option value="10.0"></option>
+                </datalist>
+             </tr>
+             <tr class="C3">
+                <th>15</th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="25"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="1" type="text" id="horaInicio" name="horaInicio"  maxlength="5"  oninput="formatTime(this)"></th>
+                <th><input size="1"></th>
+                <th><input size="1" class="input-letra2"></th>
+                <th><input size="1" class="input-letra1"></th>
+                <th><input id="A25" type="number" class="numero1" max="9" min="0"></th>
+                <th><input size="1" class="input-letra"></th>
+                <th><input type="checkbox" class="checkbox" value="1"></th>
+                <th><input type="checkbox" class="checkbox1" value="1"></th>
+                <th><input id="B25" list="LT" size="2" class="numero2"></th>
+                <th><input id="C25" type="number" max="9" min="0" class="numero3"></th>
+                <datalist id="LT">
+                    <option value="0.5"></option>
+                    <option value="1.0"></option>
+                    <option value="1.5"></option>
+                    <option value="2.0"></option>
+                    <option value="2.5"></option>
+                    <option value="3.0"></option>
+                    <option value="3.5"></option>
+                    <option value="4.0"></option>
+                    <option value="4.5"></option>
+                    <option value="5.0"></option>
+                    <option value="5.5"></option>
+                    <option value="6.0"></option>
+                    <option value="6.5"></option>
+                    <option value="7.0"></option>
+                    <option value="7.5"></option>
+                    <option value="8.0"></option>
+                    <option value="8.5"></option>
+                    <option value="9.0"></option>
+                    <option value="9.5"></option>
+                    <option value="10.0"></option>
+                </datalist>
+             </tr>
+             <tr class="C3">
+                <th>16</th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="25"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="1" type="text" id="horaInicio" name="horaInicio"  maxlength="5"  oninput="formatTime(this)"></th>
+                <th><input size="1"></th>
+                <th><input size="1" class="input-letra2"></th>
+                <th><input size="1" class="input-letra1"></th>
+                <th><input id="A26" type="number" class="numero1" max="9" min="0"></th>
+                <th><input size="1" class="input-letra"></th>
+                <th><input type="checkbox" class="checkbox" value="1"></th>
+                <th><input type="checkbox" class="checkbox1" value="1"></th>
+                <th><input id="B26" list="LT" size="2" class="numero2"></th>
+                <th><input id="C26" type="number" max="9" min="0" class="numero3"></th>
+                <datalist id="LT">
+                    <option value="0.5"></option>
+                    <option value="1.0"></option>
+                    <option value="1.5"></option>
+                    <option value="2.0"></option>
+                    <option value="2.5"></option>
+                    <option value="3.0"></option>
+                    <option value="3.5"></option>
+                    <option value="4.0"></option>
+                    <option value="4.5"></option>
+                    <option value="5.0"></option>
+                    <option value="5.5"></option>
+                    <option value="6.0"></option>
+                    <option value="6.5"></option>
+                    <option value="7.0"></option>
+                    <option value="7.5"></option>
+                    <option value="8.0"></option>
+                    <option value="8.5"></option>
+                    <option value="9.0"></option>
+                    <option value="9.5"></option>
+                    <option value="10.0"></option>
+                </datalist>
+             </tr>
+             <tr class="C3">
+                <th>17</th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="25"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="1" type="text" id="horaInicio" name="horaInicio"  maxlength="5"  oninput="formatTime(this)"></th>
+                <th><input size="1"></th>
+                <th><input size="1" class="input-letra2"></th>
+                <th><input size="1" class="input-letra1"></th>
+                <th><input id="A27" type="number" class="numero1" max="9" min="0"></th>
+                <th><input size="1" class="input-letra"></th>
+                <th><input type="checkbox"type="checkbox" class="checkbox" value="1"></th>
+                <th><input type="checkbox" class="checkbox1" value="1"></th>
+                <th><input id="B27" list="LT" size="2" class="numero2"></th>
+                <th><input id="C27" type="number" max="9" min="0" class="numero3"></th>
+                <datalist id="LT">
+                    <option value="0.5"></option>
+                    <option value="1.0"></option>
+                    <option value="1.5"></option>
+                    <option value="2.0"></option>
+                    <option value="2.5"></option>
+                    <option value="3.0"></option>
+                    <option value="3.5"></option>
+                    <option value="4.0"></option>
+                    <option value="4.5"></option>
+                    <option value="5.0"></option>
+                    <option value="5.5"></option>
+                    <option value="6.0"></option>
+                    <option value="6.5"></option>
+                    <option value="7.0"></option>
+                    <option value="7.5"></option>
+                    <option value="8.0"></option>
+                    <option value="8.5"></option>
+                    <option value="9.0"></option>
+                    <option value="9.5"></option>
+                    <option value="10.0"></option>
+                </datalist>
+             </tr>
+             <tr class="C3">
+                <th>18</th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="25"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="1" type="text" id="horaInicio" name="horaInicio"  maxlength="5"  oninput="formatTime(this)"></th>
+                <th><input size="1"></th>
+                <th><input size="1" class="input-letra2"></th>
+                <th><input size="1" class="input-letra1"></th>
+                <th><input id="A28" type="number" class="numero1" max="9" min="0"></th>
+                <th><input size="1" class="input-letra"></th>
+                <th><input type="checkbox" class="checkbox" value="1"></th>
+                <th><input type="checkbox" class="checkbox1" value="1"></th>
+                <th><input id="B28" list="LT" size="2" class="numero2"></th>
+                <th><input id="C28" type="number" max="9" min="0" class="numero3"></th>
+                <datalist id="LT">
+                    <option value="0.5"></option>
+                    <option value="1.0"></option>
+                    <option value="1.5"></option>
+                    <option value="2.0"></option>
+                    <option value="2.5"></option>
+                    <option value="3.0"></option>
+                    <option value="3.5"></option>
+                    <option value="4.0"></option>
+                    <option value="4.5"></option>
+                    <option value="5.0"></option>
+                    <option value="5.5"></option>
+                    <option value="6.0"></option>
+                    <option value="6.5"></option>
+                    <option value="7.0"></option>
+                    <option value="7.5"></option>
+                    <option value="8.0"></option>
+                    <option value="8.5"></option>
+                    <option value="9.0"></option>
+                    <option value="9.5"></option>
+                    <option value="10.0"></option>
+                </datalist>
+             </tr>
+             <tr class="C3">
+                <th>19</th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="25"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="1" type="text" id="horaInicio" name="horaInicio"  maxlength="5"  oninput="formatTime(this)"></th>
+                <th><input size="1"></th>
+                <th><input size="1" class="input-letra2"></th>
+                <th><input size="1" class="input-letra1"></th>
+                <th><input id="A29" type="number" class="numero1" max="9" min="0"></th>
+                <th><input size="1" class="input-letra"></th>
+                <th><input type="checkbox" class="checkbox" value="1"></th>
+                <th><input type="checkbox" class="checkbox1" value="1"></th>
+                <th><input id="B29" list="LT" size="2" class="numero2"></th>
+                <th><input id="C29" type="number" max="9" min="0" class="numero3"></th>
+                <datalist id="LT">
+                    <option value="0.5"></option>
+                    <option value="1.0"></option>
+                    <option value="1.5"></option>
+                    <option value="2.0"></option>
+                    <option value="2.5"></option>
+                    <option value="3.0"></option>
+                    <option value="3.5"></option>
+                    <option value="4.0"></option>
+                    <option value="4.5"></option>
+                    <option value="5.0"></option>
+                    <option value="5.5"></option>
+                    <option value="6.0"></option>
+                    <option value="6.5"></option>
+                    <option value="7.0"></option>
+                    <option value="7.5"></option>
+                    <option value="8.0"></option>
+                    <option value="8.5"></option>
+                    <option value="9.0"></option>
+                    <option value="9.5"></option>
+                    <option value="10.0"></option>
+                </datalist>
+             </tr>
+             <tr class="C3">
+                <th>20</th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="25"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="1" type="text" id="horaInicio" name="horaInicio"  maxlength="5"  oninput="formatTime(this)"></th>
+                <th><input size="1"></th>
+                <th><input size="1" class="input-letra2"></th>
+                <th><input size="1" class="input-letra1"></th>
+                <th><input id="A30" type="number" class="numero1" max="9" min="0"></th>
+                <th><input size="1" class="input-letra"></th>
+                <th><input type="checkbox" class="checkbox" value="1"></th>
+                <th><input type="checkbox" class="checkbox1" value="1"></th>
+                <th><input id="B30" list="LT" size="2" class="numero2"></th>
+                <th><input id="C30" type="number" max="9" min="0" class="numero3"></th>
+                <datalist id="LT">
+                    <option value="0.5"></option>
+                    <option value="1.0"></option>
+                    <option value="1.5"></option>
+                    <option value="2.0"></option>
+                    <option value="2.5"></option>
+                    <option value="3.0"></option>
+                    <option value="3.5"></option>
+                    <option value="4.0"></option>
+                    <option value="4.5"></option>
+                    <option value="5.0"></option>
+                    <option value="5.5"></option>
+                    <option value="6.0"></option>
+                    <option value="6.5"></option>
+                    <option value="7.0"></option>
+                    <option value="7.5"></option>
+                    <option value="8.0"></option>
+                    <option value="8.5"></option>
+                    <option value="9.0"></option>
+                    <option value="9.5"></option>
+                    <option value="10.0"></option>
+                </datalist>
+             </tr>
+             <tr class="C3">
+                <th>21</th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="25"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="1" type="text" id="horaInicio" name="horaInicio"  maxlength="5"  oninput="formatTime(this)"></th>
+                <th><input size="1"></th>
+                <th><input size="1" class="input-letra2"></th>
+                <th><input size="1" class="input-letra1"></th>
+                <th><input id="A31" type="number" class="numero1" max="9" min="0"></th>
+                <th><input size="1" class="input-letra"></th>
+                <th><input type="checkbox" class="checkbox" value="1"></th>
+                <th><input type="checkbox" class="checkbox1" value="1"></th>
+                <th><input id="B31" list="LT" size="2" class="numero2"></th>
+                <th><input id="C31" type="number" max="9" min="0" class="numero3"></th>
+                <datalist id="LT">
+                    <option value="0.5"></option>
+                    <option value="1.0"></option>
+                    <option value="1.5"></option>
+                    <option value="2.0"></option>
+                    <option value="2.5"></option>
+                    <option value="3.0"></option>
+                    <option value="3.5"></option>
+                    <option value="4.0"></option>
+                    <option value="4.5"></option>
+                    <option value="5.0"></option>
+                    <option value="5.5"></option>
+                    <option value="6.0"></option>
+                    <option value="6.5"></option>
+                    <option value="7.0"></option>
+                    <option value="7.5"></option>
+                    <option value="8.0"></option>
+                    <option value="8.5"></option>
+                    <option value="9.0"></option>
+                    <option value="9.5"></option>
+                    <option value="10.0"></option>
+                </datalist>
+             </tr>
+             <tr class="C3">
+                <th>22</th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="25"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="1" type="text" id="horaInicio" name="horaInicio"  maxlength="5"  oninput="formatTime(this)"></th>
+                <th><input size="1"></th>
+                <th><input size="1" class="input-letra2"></th>
+                <th><input size="1" class="input-letra1"></th>
+                <th><input id="A32" type="number" class="numero1" max="9" min="0"></th>
+                <th><input size="1" class="input-letra"></th>
+                <th><input type="checkbox" class="checkbox" value="1"></th>
+                <th><input type="checkbox" class="checkbox1" value="1"></th>
+                <th><input id="B32" list="LT" size="2" class="numero2"></th>
+                <th><input id="C32" type="number" max="9" min="0" class="numero3"></th>
+                <datalist id="LT">
+                    <option value="0.5"></option>
+                    <option value="1.0"></option>
+                    <option value="1.5"></option>
+                    <option value="2.0"></option>
+                    <option value="2.5"></option>
+                    <option value="3.0"></option>
+                    <option value="3.5"></option>
+                    <option value="4.0"></option>
+                    <option value="4.5"></option>
+                    <option value="5.0"></option>
+                    <option value="5.5"></option>
+                    <option value="6.0"></option>
+                    <option value="6.5"></option>
+                    <option value="7.0"></option>
+                    <option value="7.5"></option>
+                    <option value="8.0"></option>
+                    <option value="8.5"></option>
+                    <option value="9.0"></option>
+                    <option value="9.5"></option>
+                    <option value="10.0"></option>
+                </datalist>
+             </tr>
+             <tr class="C3">
+                <th>23</th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="25"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="1" type="text" id="horaInicio" name="horaInicio"  maxlength="5"  oninput="formatTime(this)"></th>
+                <th><input size="1"></th>
+                <th><input size="1" class="input-letra2"></th>
+                <th><input size="1" class="input-letra1"></th>
+                <th><input id="A33" type="number" class="numero1" max="9" min="0"></th>
+                <th><input size="1" class="input-letra"></th>
+                <th><input type="checkbox" class="checkbox" value="1"></th>
+                <th><input type="checkbox" class="checkbox1" value="1"></th>
+                <th><input id="B33" list="LT" size="2" class="numero2"></th>
+                <th><input id="C33" type="number" max="9" min="0" class="numero3"></th>
+                <datalist id="LT">
+                    <option value="0.5"></option>
+                    <option value="1.0"></option>
+                    <option value="1.5"></option>
+                    <option value="2.0"></option>
+                    <option value="2.5"></option>
+                    <option value="3.0"></option>
+                    <option value="3.5"></option>
+                    <option value="4.0"></option>
+                    <option value="4.5"></option>
+                    <option value="5.0"></option>
+                    <option value="5.5"></option>
+                    <option value="6.0"></option>
+                    <option value="6.5"></option>
+                    <option value="7.0"></option>
+                    <option value="7.5"></option>
+                    <option value="8.0"></option>
+                    <option value="8.5"></option>
+                    <option value="9.0"></option>
+                    <option value="9.5"></option>
+                    <option value="10.0"></option>
+                </datalist>
+             </tr>
+             <tr class="C3">
+                <th>24</th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="25"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="1" type="text" id="horaInicio" name="horaInicio"  maxlength="5"  oninput="formatTime(this)"></th>
+                <th><input size="1"></th>
+                <th><input size="1" class="input-letra2"></th>
+                <th><input size="1" class="input-letra1"></th>
+                <th><input id="A34" type="number" class="numero1" max="9" min="0"></th>
+                <th><input size="1" class="input-letra"></th>
+                <th><input type="checkbox" class="checkbox" value="1"></th>
+                <th><input type="checkbox" class="checkbox1" value="1"></th>
+                <th><input id="B34" list="LT" size="2" class="numero2"></th>
+                <th><input id="C34" type="number" max="9" min="0" class="numero3"></th>
+                <datalist id="LT">
+                    <option value="0.5"></option>
+                    <option value="1.0"></option>
+                    <option value="1.5"></option>
+                    <option value="2.0"></option>
+                    <option value="2.5"></option>
+                    <option value="3.0"></option>
+                    <option value="3.5"></option>
+                    <option value="4.0"></option>
+                    <option value="4.5"></option>
+                    <option value="5.0"></option>
+                    <option value="5.5"></option>
+                    <option value="6.0"></option>
+                    <option value="6.5"></option>
+                    <option value="7.0"></option>
+                    <option value="7.5"></option>
+                    <option value="8.0"></option>
+                    <option value="8.5"></option>
+                    <option value="9.0"></option>
+                    <option value="9.5"></option>
+                    <option value="10.0"></option>
+                </datalist>
+             </tr>
+             <tr class="C3">
+                <th>25</th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="25"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="1" type="text" id="horaInicio" name="horaInicio"  maxlength="5"  oninput="formatTime(this)"></th>
+                <th><input size="1"></th>
+                <th><input size="1" class="input-letra2"></th>
+                <th><input size="1" class="input-letra1"></th>
+                <th><input id="A35" type="number" class="numero1" max="9" min="0"></th>
+                <th><input size="1" class="input-letra"></th>
+                <th><input type="checkbox" class="checkbox" value="1"></th>
+                <th><input type="checkbox" class="checkbox1" value="1"></th>
+                <th><input id="B35" list="LT" size="2" class="numero2"></th>
+                <th><input id="C35" type="number" max="9" min="0" class="numero3"></th>
+                <datalist id="LT">
+                    <option value="0.5"></option>
+                    <option value="1.0"></option>
+                    <option value="1.5"></option>
+                    <option value="2.0"></option>
+                    <option value="2.5"></option>
+                    <option value="3.0"></option>
+                    <option value="3.5"></option>
+                    <option value="4.0"></option>
+                    <option value="4.5"></option>
+                    <option value="5.0"></option>
+                    <option value="5.5"></option>
+                    <option value="6.0"></option>
+                    <option value="6.5"></option>
+                    <option value="7.0"></option>
+                    <option value="7.5"></option>
+                    <option value="8.0"></option>
+                    <option value="8.5"></option>
+                    <option value="9.0"></option>
+                    <option value="9.5"></option>
+                    <option value="10.0"></option>
+                </datalist>
+             </tr>
+             <tr class="C3">
+                <th>26</th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="25"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="1" type="text" id="horaInicio" name="horaInicio"  maxlength="5"  oninput="formatTime(this)"></th>
+                <th><input size="1"></th>
+                <th><input size="1" class="input-letra2"></th>
+                <th><input size="1" class="input-letra1"></th>
+                <th><input id="A36" type="number" class="numero1" max="9" min="0"></th>
+                <th><input size="1" class="input-letra"></th>
+                <th><input type="checkbox" class="checkbox" value="1"></th>
+                <th><input type="checkbox" class="checkbox1" value="1"></th>
+                <th><input id="B36" list="LT" size="2" class="numero2"></th>
+                <th><input id="C36" type="number" max="9" min="0" class="numero3"></th>
+                <datalist id="LT">
+                    <option value="0.5"></option>
+                    <option value="1.0"></option>
+                    <option value="1.5"></option>
+                    <option value="2.0"></option>
+                    <option value="2.5"></option>
+                    <option value="3.0"></option>
+                    <option value="3.5"></option>
+                    <option value="4.0"></option>
+                    <option value="4.5"></option>
+                    <option value="5.0"></option>
+                    <option value="5.5"></option>
+                    <option value="6.0"></option>
+                    <option value="6.5"></option>
+                    <option value="7.0"></option>
+                    <option value="7.5"></option>
+                    <option value="8.0"></option>
+                    <option value="8.5"></option>
+                    <option value="9.0"></option>
+                    <option value="9.5"></option>
+                    <option value="10.0"></option>
+                </datalist>
+             </tr>
+             <tr class="C3">
+                <th>27</th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="25"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="1" type="text" id="horaInicio" name="horaInicio"  maxlength="5"  oninput="formatTime(this)"></th>
+                <th><input size="1"></th>
+                <th><input size="1" class="input-letra2"></th>
+                <th><input size="1" class="input-letra1"></th>
+                <th><input id="A37" type="number" class="numero1" max="9" min="0"></th>
+                <th><input size="1" class="input-letra"></th>
+                <th><input type="checkbox" class="checkbox" value="1"></th>
+                <th><input type="checkbox" class="checkbox1" value="1"></th>
+                <th><input id="B37" list="LT" size="2" class="numero2"></th>
+                <th><input id="C37" type="number" max="9" min="0" class="numero3"></th>
+                <datalist id="LT">
+                    <option value="0.5"></option>
+                    <option value="1.0"></option>
+                    <option value="1.5"></option>
+                    <option value="2.0"></option>
+                    <option value="2.5"></option>
+                    <option value="3.0"></option>
+                    <option value="3.5"></option>
+                    <option value="4.0"></option>
+                    <option value="4.5"></option>
+                    <option value="5.0"></option>
+                    <option value="5.5"></option>
+                    <option value="6.0"></option>
+                    <option value="6.5"></option>
+                    <option value="7.0"></option>
+                    <option value="7.5"></option>
+                    <option value="8.0"></option>
+                    <option value="8.5"></option>
+                    <option value="9.0"></option>
+                    <option value="9.5"></option>
+                    <option value="10.0"></option>
+                </datalist>
+             </tr>
+
+             <tr class="C3">
+                <th>28</th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="25"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="1" type="text" id="horaInicio" name="horaInicio"  maxlength="5"  oninput="formatTime(this)"></th>
+                <th><input size="1"></th>
+                <th><input size="1" class="input-letra2"></th>
+                <th><input size="1" class="input-letra1"></th>
+                <th><input id="A38" type="number" class="numero1" max="9" min="0"></th>
+                <th><input size="1" class="input-letra"></th>
+                <th><input type="checkbox" class="checkbox" value="1"></th>
+                <th><input type="checkbox" class="checkbox1" value="1"></th>
+                <th><input id="B38" list="LT" size="2" class="numero2"></th>
+                <th><input id="C38" type="number" max="9" min="0" class="numero3"></th>
+                <datalist id="LT">
+                    <option value="0.5"></option>
+                    <option value="1.0"></option>
+                    <option value="1.5"></option>
+                    <option value="2.0"></option>
+                    <option value="2.5"></option>
+                    <option value="3.0"></option>
+                    <option value="3.5"></option>
+                    <option value="4.0"></option>
+                    <option value="4.5"></option>
+                    <option value="5.0"></option>
+                    <option value="5.5"></option>
+                    <option value="6.0"></option>
+                    <option value="6.5"></option>
+                    <option value="7.0"></option>
+                    <option value="7.5"></option>
+                    <option value="8.0"></option>
+                    <option value="8.5"></option>
+                    <option value="9.0"></option>
+                    <option value="9.5"></option>
+                    <option value="10.0"></option>
+                </datalist>
+             </tr>
+             <tr class="C3">
+                <th>29</th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="25"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="1" type="text" id="horaInicio" name="horaInicio"  maxlength="5"  oninput="formatTime(this)"></th>
+                <th><input size="1"></th>
+                <th><input size="1" class="input-letra2"></th>
+                <th><input size="1" class="input-letra1"></th>
+                <th><input id="A39" type="number" class="numero1" max="9" min="0"></th>
+                <th><input size="1" class="input-letra"></th>
+                <th><input type="checkbox" class="checkbox" value="1"></th>
+                <th><input type="checkbox" class="checkbox1" value="1"></th>
+                <th><input id="B39" list="LT" size="2" class="numero2"></th>
+                <th><input id="C39" type="number" max="9" min="0" class="numero3"></th>
+                <datalist id="LT">
+                    <option value="0.5"></option>
+                    <option value="1.0"></option>
+                    <option value="1.5"></option>
+                    <option value="2.0"></option>
+                    <option value="2.5"></option>
+                    <option value="3.0"></option>
+                    <option value="3.5"></option>
+                    <option value="4.0"></option>
+                    <option value="4.5"></option>
+                    <option value="5.0"></option>
+                    <option value="5.5"></option>
+                    <option value="6.0"></option>
+                    <option value="6.5"></option>
+                    <option value="7.0"></option>
+                    <option value="7.5"></option>
+                    <option value="8.0"></option>
+                    <option value="8.5"></option>
+                    <option value="9.0"></option>
+                    <option value="9.5"></option>
+                    <option value="10.0"></option>
+                </datalist>
+             </tr>
+             <tr class="C3">
+                <th>30</th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="25"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input type="number" min="0" max="9"></th>
+                <th><input size="1" type="text" id="horaInicio" name="horaInicio"  maxlength="5"  oninput="formatTime(this)"></th>
+                <th><input size="1"></th>
+                <th><input size="1" class="input-letra2"></th>
+                <th><input size="1" class="input-letra1"></th>
+                <th><input id="A40" type="number" class="numero1" max="9" min="0"></th>
+                <th><input size="1" class="input-letra"></th>
+                <th><input type="checkbox" class="checkbox" value="1"></th>
+                <th><input type="checkbox" class="checkbox1" value="1"></th>
+                <th><input id="B40" list="LT" size="2" class="numero2"></th>
+                <th><input id="C40" type="number" max="9" min="0" class="numero3"></th>
+                <datalist id="LT">
+                    <option value="0.5"></option>
+                    <option value="1.0"></option>
+                    <option value="1.5"></option>
+                    <option value="2.0"></option>
+                    <option value="2.5"></option>
+                    <option value="3.0"></option>
+                    <option value="3.5"></option>
+                    <option value="4.0"></option>
+                    <option value="4.5"></option>
+                    <option value="5.0"></option>
+                    <option value="5.5"></option>
+                    <option value="6.0"></option>
+                    <option value="6.5"></option>
+                    <option value="7.0"></option>
+                    <option value="7.5"></option>
+                    <option value="8.0"></option>
+                    <option value="8.5"></option>
+                    <option value="9.0"></option>
+                    <option value="9.5"></option>
+                    <option value="10.0"></option>
+                    <option value="10g/1000"></option>
+                </datalist>
+             </tr>
+        </table>
+        </div>
+        <div>
+            <table border="1" style="border-bottom: 5px solid #000000;">
+                <tr style="background-color: rgb(233, 208, 66);">
+        <!--CALCULOS AUTOMATICOS 1-->           
+                    <th class="T1">RESIDÊNCIAS: <input class="numero" type="number" min="0" max="9"></th>
+                    <th class="T1">COMÉRCIOS: <input class="numero" type="number" min="0" max="9"></th>
+                    <th class="T1">OUTROS: <input class="numero" type="number" min="0" max="9"></th>
+                    <th class="T1">TERRENOS:  <input class="numero" type="number" min="0" max="9"></th>
+                    <th class="T1">RECUSADO: <input type="number" min="0" max="9"></th>
+                    <th class="T1" colspan="" style="text-align: center;">QT.TRAB.: <input type="text" min="0" max="99999999"></th>
+                    <th class="T1" colspan="" style="text-align: center;">QT.CONC.: <input type="text" min="0" max="99999999"></th>
+                    <th class="T1" colspan="" style="background-color: rgb(233, 208, 66);text-align: center;">CONCLUIDA?: <input size="1"></th>
+                    </tr></table><br>
+                    <section><table border="0" style="background-color: rgb(255, 255, 255);"><tr>
+                    <th colspan="" class="T1" style="text-align: end; background-color: rgb(199, 199, 199);border-bottom: 5px solid #000000;">TOTAL DE IMÓVEIS =</th>
+                    <th id="resultado" style="text-align: start; font-family: Verdana; color: rgb(214, 0, 0);font-size: 22px;"><th colspan="" class="T1" style="text-align: end; background-color: rgb(199, 199, 199);border-bottom: 5px solid #000000;">IMÓV.FECHADO =</th>
+                    <th id="total6" style="text-align: start; font-family: Verdana; color: rgb(214, 0, 0);font-size: 22px;"></th><th colspan="" class="T1" style="text-align: end; background-color: rgb(199, 199, 199);border-bottom: 5px solid #000000;">IMÓV.RECUPERADO =</th>
+                    <th id="total7" style="text-align: start; font-family: Verdana; color: rgb(214, 0, 0);font-size: 22px;"></th>
+                    <table></section><br>
+                        <th colspan="2" class="T1" style="text-align: end; background-color: rgb(199, 199, 199);border-bottom: 5px solid #000000;">ELIMINADO =</th><th id="resultado1" style="text-align: start;font-family: Verdana; color: rgb(214, 0, 0);font-size: 22px;"></th>  
+                        <th colspan="" class="T1" style="text-align: end; background-color: rgb(199, 199, 199);border-bottom: 5px solid #000000;">IMÓV.INSPECIONADO =</th>
+                    <th id="total" style="text-align: start; font-family: Verdana; color: rgb(214, 0, 0);font-size: 22px;"></th>
+                    <th colspan="" class="T1" style="text-align: end; background-color: rgb(199, 199, 199);border-bottom: 5px solid #000000;">IMÓV.COM FOCO =</th><th id="total5" style="text-align: start;font-family: Verdana; color: rgb(214, 0, 0); font-size: 22px;"></th>
+                    </table><br>
+                    <script>
+                        const numeros = document.querySelectorAll('.numero');
+                        const resultado = document.getElementById('resultado');
+                        
+                        numeros.forEach(numero => {
+                          numero.addEventListener('input', () => {
+                            let soma = 0;
+                            numeros.forEach(num => {
+                              soma += parseInt(num.value) || 0;
+                            });
+                            resultado.textContent = soma;
+                          });
+                        });
+                        </script>
+                        <script>
+                            const inputs = document.querySelectorAll('.input-letra');
+                            const totalElement = document.getElementById('total');
+                            
+                            inputs.forEach(input => {
+                                input.addEventListener('input', () => {
+                                    let total = 0;
+                                    inputs.forEach(input => {
+                                        total += input.value.toLowerCase().split('x').length - 1;
+                                    });
+                                    totalElement.textContent = total;
+                                });
+                            });
+                            </script>
+                    <script>
+                        const inputs1 = document.querySelectorAll('.input-letra1');
+                        const totalElement1 = document.getElementById('total6');
+                        
+                        inputs1.forEach(input => {
+                            input.addEventListener('input', () => {
+                                let total6 = 0;
+                                inputs1.forEach(input => {
+                                    total6 += input.value.toLowerCase().split('f').length - 1;
+                                });
+                                totalElement1.textContent = total6;
+                            });
+                        });
+                        </script>
+                        <script>
+                            const inputs2 = document.querySelectorAll('.input-letra2');
+                            const totalElement2 = document.getElementById('total7');
+                            
+                            inputs2.forEach(input => {
+                                input.addEventListener('input', () => {
+                                    let total7 = 0;
+                                    inputs2.forEach(input => {
+                                        total7 += input.value.toLowerCase().split('r').length - 1;
+                                    });
+                                    totalElement2.textContent = total7;
+                                });
+                            });
+                            </script>
+                 
+                </tr>
+             <!--CALCULOS AUTOMATICOS 2-->     
+                <tr style="background-color: rgb(233, 208, 66);"></tr>
+                    <!-- <tr></tr> -->
+
+                    <script>
+                        const numeros1 = document.querySelectorAll('.numero1');
+                        const resultado1 = document.getElementById('resultado1');
+                        
+                        numeros1.forEach(numero1 => {
+                          numero1.addEventListener('input', () => {
+                            let soma = 0;
+                            numeros1.forEach(num => {
+                              soma += parseInt(num.value) || 0;
+                            });
+                            resultado1.textContent = soma;
+                          });
+                        });
+                        </script>
+                        </table>
+             <!--CALCULOS AUTOMATICOS 3-->   
+                <tr style="background-color: rgb(233, 208, 66);">
+                    <table border="0" style="background-color: rgb(255, 255, 255);">
+                    <tr><th colspan="" class="T1" style="text-align: end; background-color: rgb(199, 199, 199);border-bottom: 5px solid #000000;">IMÓV.TRATADO =</th><th id="total1" style="text-align: start;font-family: Verdana; color: rgb(214, 0, 0); font-size: 22px;"><th colspan="" class="T1" style="text-align: end; background-color: rgb(199, 199, 199);border-bottom: 5px solid #000000;">GRAMAS =</th><th id="resultado2" style="text-align: start; font-family: Verdana; color: rgb(214, 0, 0); font-size: 22px;"><th colspan="" class="T1" style="text-align: end; background-color: rgb(199, 199, 199);border-bottom: 5px solid #000000;">QTDE.DEP.TRAT. =<th id="resultado3" style="text-align: start; font-family: Verdana; color: rgb(214, 0, 0); font-size: 22px;"></th></tr>
+                </tr>
+                    </table>
+                    <script>
+                        const numeros2 = document.querySelectorAll('.numero2');
+                        const resultado2 = document.getElementById('resultado2');
+                        
+                        numeros2.forEach(numero2 => {
+                          numero2.addEventListener('input', () => {
+                            let soma = 0;
+                            numeros2.forEach(num => {
+                              soma += parseFloat(num.value) || 0;
+                            });
+                            resultado2.textContent = soma;
+                          });
+                        });
+                        </script>
+                        <script>
+                            const checkboxes1 = document.querySelectorAll('.checkbox1');
+                            const totalSpan1 = document.getElementById('total1');
+                    
+                            checkboxes1.forEach(checkbox1 => {
+                                checkbox1.addEventListener('change', () => {
+                                    let total1 = 0;
+                                    checkboxes1.forEach(checkbox => {
+                                        if (checkbox.checked) {
+                                            total1 += parseInt(checkbox.value);
+                                        }
+                                    });
+                                    totalSpan1.textContent = total1;
+                                });
+                            });
+                        </script>
+                        <script>
+                            const checkboxes = document.querySelectorAll('.checkbox');
+                            const totalSpan = document.getElementById('total5');
+                    
+                            checkboxes.forEach(checkbox => {
+                                checkbox.addEventListener('change', () => {
+                                    let total5 = 0;
+                                    checkboxes.forEach(checkbox => {
+                                        if (checkbox.checked) {
+                                            total5 += parseInt(checkbox.value);
+                                        }
+                                    });
+                                    totalSpan.textContent = total5;
+                                });
+                            });
+                        </script>
+                        <!--CALCULOS AUTOMATICOS 4--> 
+                        <script>
+                            const numeros3 = document.querySelectorAll('.numero3');
+                            const resultado3 = document.getElementById('resultado3');
+                            
+                            numeros3.forEach(numero3 => {
+                              numero3.addEventListener('input', () => {
+                                let soma = 0;
+                                numeros3.forEach(num => {
+                                  soma += parseInt(num.value) || 0;
+                                });
+                                resultado3.textContent = soma;
+                              });
+                            });
+                            </script>
+                            <script>
+                                 const users = [
+                                 { username: 'kaka', password: '1234' },
+                                 { username: 'kaka1', password: '0002' },
+                                 { username: 'kaka2', password: '0003' },
+                                 { username: 'kaka3', password: '0004' },]
+                                const loginForm = document.getElementById('loginForm');
+                                const logoutSection = document.getElementById('logout');
+                        
+                                loginForm.addEventListener('submit', function(event) {
+                                    event.preventDefault();
+                                    const username = document.getElementById('username').value;
+                                    const password = document.getElementById('password').value;
+                                    const user = users.find(user => user.username === username && user.password === password);
+                                    if (user) {
+                                        loginForm.style.display = 'none';
+                                        logoutSection.style.display = 'block';
+                                        
+                                    }else{alert('NOME E SENHA INCORRETO')}
+                                });
+                            
+                                const logoutBtn = document.getElementById('logoutBtn');
+                                logoutBtn.addEventListener('click', function() {
+                                    loginForm.style.display = 'block';
+                                    logoutSection.style.display = 'none';
+                                });
+                            </script>
+                            <script>
+                                document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) {
+                e.preventDefault();
+            }
+            if (e.key === 'F12') {
+                e.preventDefault();
+            }
+        });
+                            </script>
+                </tr>
+            
+            </table>
+        </div>
+</div>
+</form>
+</body>
+</html>

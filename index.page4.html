@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Imóv. Fechados</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: yellow;
+            font-size: larger;
+        }
+        input, button {
+            margin: 5px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 20px;
+            padding: 5px;
+        }
+        .casa {
+            margin: 10px 0;
+        }
+        h1{
+            font-family: Verdana;
+        }
+        #listaCasas{
+            background-color: white;
+            border-radius: 10px;
+            font-family: Verdana;
+            font-weight: 600;
+            font-size: larger;
+            padding: 3px;
+        }
+        section{
+            background-color: rgb(241, 163, 19);
+            padding: 5px;
+            border-radius: 10px;
+        }
+        .btn-apagar {
+            background-color: red;
+            color: white;
+        }
+        .btn-adc{
+            padding: 5px;
+            background-color: rgb(0, 180, 0);
+            color: white;
+        }
+        .btn-salvar {
+            background-color: blue;
+            color: white;
+        }
+        button{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+   <section>
+    <h1><u>Imóveis Fechados</u></h1>
+    <input type="number" id="quarteirao" placeholder="QT">
+    <input type="number" id="fad" placeholder="FAD">
+    <button class="btn-adc" id="adicionar">Adicionar Imóv.</button>
+    <button class="btn-salvar" id="salvarPDF">Salvar em PDF</button>
+</section>  
+    <div id="listaCasas"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script>
+        const { jsPDF } = window.jspdf;
+        const listaCasas = document.getElementById('listaCasas');
+        const quarteiraoInput = document.getElementById('quarteirao');
+        const fadInput = document.getElementById('fad');
+        const adicionarButton = document.getElementById('adicionar');
+        const salvarPDFButton = document.getElementById('salvarPDF');
+
+        function atualizarLista() {
+            listaCasas.innerHTML = '';
+            const casas = JSON.parse(localStorage.getItem('casas')) || [];
+            casas.forEach((casa, index) => {
+                const divCasa = document.createElement('div');
+                divCasa.className = 'casa';
+                divCasa.innerHTML = `QT: ${casa.quarteirao} - FAD: ${casa.fad} <button class="btn-apagar" onclick="apagarCasa(${index})">Apagar</button>`;
+                listaCasas.appendChild(divCasa);
+            });
+        }
+
+        function adicionarCasa() {
+            const quarteirao = quarteiraoInput.value;
+            const fad = fadInput.value;
+            if (quarteirao && fad) {
+                const casas = JSON.parse(localStorage.getItem('casas')) || [];
+                casas.push({ quarteirao, fad });
+                localStorage.setItem('casas', JSON.stringify(casas));
+                quarteiraoInput.value = '';
+                fadInput.value = '';
+                atualizarLista();
+            }
+        }
+
+        function apagarCasa(index) {
+            const casas = JSON.parse(localStorage.getItem('casas')) || [];
+            casas.splice(index, 1);
+            localStorage.setItem('casas', JSON.stringify(casas));
+            atualizarLista();
+        }
+
+        function salvarPDF() {
+            const casas = JSON.parse(localStorage.getItem('casas')) || [];
+            const doc = new jsPDF();
+            doc.text("Imóveis Fechados", 10, 10);
+            casas.forEach((casa, index) => {
+                doc.text(`QT: ${casa.quarteirao} - FAD: ${casa.fad}`, 10, 20 + (index * 10));
+            });
+            doc.save('imoveis_fechados.pdf');
+        }
+
+        adicionarButton.addEventListener('click', adicionarCasa);
+        salvarPDFButton.addEventListener('click', salvarPDF);
+        window.onload = atualizarLista;
+    </script>
+</body>
+</html>

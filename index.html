@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Login</title>
+    <script>
+        function bloquearVoltar() {
+            window.history.pushState(null, '', window.location.href);
+            window.onpopstate = function () {
+                window.history.pushState(null, '', window.location.href);
+            };
+        }
+        function login() {
+            const usuario = document.getElementById('usuario').value;
+            const senha = document.getElementById('senha').value;
+
+            if (usuario === 'kaka' && senha === '1234' || usuario === 'kaka1' && senha === '12345' 
+               || usuario === 'kaka2' && senha === '123456'
+            ) {
+                sessionStorage.setItem('logado', 'true');
+                window.location.href = 'index.page1.html';
+            } else {
+                Swal.fire('Usuário ou senha incorretos!');
+            }
+        }
+        function logout() {
+            sessionStorage.removeItem('logado');
+            window.location.href = 'index.html';
+        }   
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) {
+                e.preventDefault();
+            }
+            if (e.key === 'F12') {
+                e.preventDefault();
+            }
+        });
+
+        function toggleSenha() {
+            const senhaInput = document.getElementById('senha');
+            const tipo = senhaInput.type === 'password' ? 'text' : 'password';
+            senhaInput.type = tipo;
+        }
+    </script>
+    
+</head>
+<style>
+    body{ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   background-color: yellow;}
+    .form{ position: absolute;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%,-50%); 
+       text-align: center;
+    background-color: rgb(255, 187, 0);}
+    input{ padding: 3%;
+       border: none;
+       font-size: 118%;
+       text-align: center;
+        border-radius: 10px;}
+    button{background-color: rgb(250, 249, 247);
+       padding: 3%;
+       width: 80%;
+       border-radius: 10px;
+       font-family: Verdana;
+       font-weight: 600;
+       font-size: 18px;
+       cursor: pointer;}
+    button:hover{
+       background-color: rgba(210, 208, 219, 0.733);}
+       h1{color: white; background-color: rgb(126, 98, 23); padding: 5px; border-radius: 10px;}
+</style>
+<body class="form" onload="bloquearVoltar(); verificarLogin();">
+    <section>
+        <img style="width: 120px; border-radius: 15px;" src="ITI.png" alt="">
+    </section>
+    <h1>BEM VINDO ACE <br> ITINGA-MA</h1>
+    <input type="text" id="usuario" placeholder="Usuário" required><br><br>
+    <input type="password" id="senha" placeholder="Senha" required><br>
+    <label><br>
+        <input type="checkbox" onclick="toggleSenha()"> Mostrar Senha
+    </label><br><br>
+    <button onclick="login()">Entrar</button><br><br>
+</body>
+</html>
